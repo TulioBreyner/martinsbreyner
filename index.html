@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify Fake Player</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="player-container">
+    <div class="current">
+      <img id="capa" src="imagensMusicas/os anjos cantam.jpg" alt="Capa do álbum" />
+
+      <div class="info">
+        <h3 id="titulo">Título da Música</h3>
+        <p id="artista">Artista</p>
+
+        <div class="controls">
+          <button onclick="anterior()">⏮</button>
+          <button onclick="playPause()" id="playPauseBtn">⏯</button>
+          <button onclick="proxima()">⏭</button>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+        </div>
+
+        <div class="progress-container">
+            <span id="tempo-atual">0:00</span>
+            <input type="range" id="progresso" value="0" step="1" min="0">
+            <span id="tempo-total">0:00</span>
+        </div>
+
+      </div>
+    </div>
+
+    <ul id="lista-musicas">
+      <!-- Lista gerada dinamicamente -->
+    </ul>
+
+    <audio id="audio" src="musicas/Os Anjos Cantam.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

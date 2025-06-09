@@ -1,0 +1,135 @@
+body {
+  background: #121212;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.player-container {
+  background: #0f2c38;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px #000;
+  padding: 15px;
+}
+
+.current {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.current img {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.info p {
+  margin: 2px 0 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#volume {
+  width: 100px;
+}
+
+#lista-musicas {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  max-height: 100px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(221, 221, 221, 0.521) #0f2c38;
+}
+
+#lista-musicas li {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0f2c38;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+
+/* Música que está tocando */
+#lista-musicas li.playing {
+  background-color: #1db9546e;
+  color: rgb(233, 233, 233);
+  font-weight: bold;
+  opacity: 1 !important;
+}
+
+#lista-musicas::-webkit-scrollbar {
+  width: 6px;
+}
+
+#lista-musicas::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 200, 0.3);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#lista-musicas.scrolling::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 200, 0.7);
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+#progresso {
+  flex: 1;
+  height: 4px;
+  appearance: none;
+  background: #555;
+  border-radius: 2px;
+  outline: none;
+}
+
+#progresso::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}

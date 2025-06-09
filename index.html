@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spotify Fake Player</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="musicas.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="player-container">
@@ -38,6 +39,64 @@
     <audio id="audio" src="musicas/Os Anjos Cantam.mp3"></audio>
   </div>
 
+  <div class="section-container photo-section">
+      <div id="photo-display">
+          <img id="initial-photo" src="imagens/foto0.jpg" />
+          <button id="view-photos-btn">Relembre Nossos Momentos</button>
+      </div>
+      <div id="photo-carousel" class="carousel-container hidden">
+          <div class="carousel-slide">
+              </div>
+          <button class="carousel-btn prev-btn">❮</button>
+          <button class="carousel-btn next-btn">❯</button>
+          <div class="carousel-dots"></div>
+      </div>
+  </div>
+
+  <div class="section-container time-marker-section">
+      <h2 class="section-title">Ja faz</h2>
+      <div class="countdown-display">
+          <div class="time-unit">
+              <span id="years">00</span>
+              <p>anos</p>
+          </div>
+          <div class="time-unit">
+              <span id="months">00</span>
+              <p>meses</p>
+          </div>
+          <div class="time-unit">
+              <span id="days">00</span>
+              <p>dias</p>
+          </div>
+          <div class="time-unit">
+              <span id="hours">00</span>
+              <p>horas</p>
+          </div>
+          <div class="time-unit">
+              <span id="minutes">00</span>
+              <p>minutos</p>
+          </div>
+          <div class="time-unit">
+              <span id="seconds">00</span>
+              <p>segundos</p>
+          </div>
+      </div>
+      <h2 class="section-title">que meu coração escolheu te amar. Desde então, me entrego a você por inteiro, todos os dias.</h2>
+  </div>
+
+  <div class="section-container text-section">
+      <h2 class="section-title">Sou péssimo com palavras, mas conheço dois que já disseram exatamento o que quero dizer</h2>
+      <p>
+          "Se você me pedir pra ficar pra sempre com você <br>
+           Nem vou pensar duas vezes pra te responder <br>
+           Cê sabe que eu vou, vou, vou <br>
+           Pego minhas coisa e vou <br>
+           Ficar pra sempre, sempre com você"
+      </p>
+      <p style="text-align: right; padding-right: 40%; font-style: italic;">Jorge e Mateus</p>
+  </div>
+
+  <script src="musicas.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

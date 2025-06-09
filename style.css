@@ -1,133 +1,199 @@
-body {
-  background: #121212;
-  font-family: sans-serif;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+/* Estilos gerais para as novas seções */
+.section-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco suave com transparência */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    padding: 30px;
+    margin: 40px auto; /* Espaçamento maior entre as seções */
+    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais suave e proeminente */
+    text-align: center;
+    color: #444; /* Cor de texto mais escura para melhor legibilidade */
 }
 
-.player-container {
-  background: #0f2c38;
-  border-radius: 10px;
-  width: 400px;
-  box-shadow: 0 0 10px #000;
-  padding: 15px;
+.section-title {
+    font-family: 'Georgia', serif; /* Fonte mais clássica */
+    color: #e91e63; /* Tom de rosa vibrante */
+    font-size: 2em; /* Título maior */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.current {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+/* --- Seção de Fotos --- */
+.photo-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.current img {
-  width: 80px;
-  height: 80px;
-  border-radius: 5px;
-  margin-right: 15px;
+.photo-section button {
+    background-color: #ff4081; /* Rosa choque */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.info {
-  flex: 1;
+.photo-section button:hover {
+    background-color: #e91e63; /* Rosa mais escuro ao passar o mouse */
+    transform: translateY(-2px);
 }
 
-.info h3 {
-  margin: 0;
-  font-size: 16px;
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+
 }
 
-.info p {
-  margin: 2px 0 10px;
-  font-size: 14px;
-  color: #ccc;
+.carousel-slide {
+    display: flex; /* Para as imagens ficarem lado a lado */
+    transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.carousel-slide img {
+    width: 100%;
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.controls button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #e91e63;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#volume {
-  width: 100px;
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #c2185b;
 }
 
-#lista-musicas {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-  max-height: 100px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(221, 221, 221, 0.521) #0f2c38;
+.prev-btn {
+    left: 10px;
 }
 
-#lista-musicas li {
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #0f2c38;
-  border-radius: 5px;
-  transition: opacity 0.3s ease;
+.next-btn {
+    right: 10px;
 }
 
-/* Música que está tocando */
-#lista-musicas li.playing {
-  background-color: #1db9546e;
-  color: rgb(233, 233, 233);
-  font-weight: bold;
-  opacity: 1 !important;
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
-#lista-musicas::-webkit-scrollbar {
-  width: 6px;
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#lista-musicas::-webkit-scrollbar-thumb {
-  background-color: rgba(200, 200, 200, 0.3);
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+.dot.active {
+    background-color: #ff4081; /* Rosa do botão */
 }
 
-#lista-musicas.scrolling::-webkit-scrollbar-thumb {
-  background-color: rgba(200, 200, 200, 0.7);
+.hidden {
+    display: none !important;
 }
 
-.progress-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
+/* --- Seção Marcador de Tempo --- */
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para quebrar a linha em telas menores */
+    gap: 25px; /* Aumenta o espaçamento entre as unidades */
+    margin-top: 30px;
 }
 
-#progresso {
-  flex: 1;
-  height: 4px;
-  appearance: none;
-  background: #555;
-  border-radius: 2px;
-  outline: none;
+.time-unit {
+    background-color: #ffe0e6; /* Fundo rosa claro */
+    border-radius: 10px;
+    padding: 15px 25px;
+    min-width: 50px; /* Garante que as caixas não fiquem muito pequenas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
-#progresso::-webkit-slider-thumb {
-  appearance: none;
-  width: 10px;
-  height: 10px;
-  background: #1db954;
-  border-radius: 50%;
-  cursor: pointer;
+.time-unit span {
+    display: block;
+    font-size: 2.5em; /* Números maiores */
+    font-weight: bold;
+    color: #d81b60; /* Rosa mais escuro para os números */
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif; /* Fonte moderna para os números */
+}
+
+.time-unit p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 0;
+}
+
+/* --- Seção de Texto Livre --- */
+.text-section p {
+    font-size: 1.2em; /* Texto maior */
+    line-height: 1.8; /* Espaçamento entre linhas para melhor leitura */
+    color: #555;
+    text-align: justify; /* Justifica o texto */
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif; /* Fonte leve para o texto */
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .section-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    .countdown-display {
+        gap: 15px;
+    }
+
+    .time-unit {
+        min-width: 80px;
+        padding: 10px 15px;
+    }
+
+    .time-unit span {
+        font-size: 2.8em;
+    }
+
+    .time-unit p {
+        font-size: 1em;
+    }
+
+    .carousel-btn {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-unit {
+        flex-basis: 45%; /* Duas unidades por linha */
+    }
 }
